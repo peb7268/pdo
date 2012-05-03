@@ -15,13 +15,6 @@ try {
   //$stmnt = $pdo-> prepare("INSERT INTO users (id, first_name, last_name, email, password) values (?, ?, ?, ?, ?)");
   //$stmnt->setFetchMode(PDO::FETCH_ASSOC);
   //$stmnt->execute($data);
-	$query = "SELECT * FROM users";
-	
-	$result = $pdo->prepare($query);
-	$result->setFetchMode(PDO::FETCH_ASSOC);
-	$array = array('name');
-	var_dump($result->execute());
-  
 }  
 catch(PDOException $e) {  
     echo $e->getMessage();  
@@ -58,7 +51,17 @@ catch(PDOException $e) {
 	
 	<p><input type="submit" name="submit" value="Continue &rarr;"></p>
 </form>
-
+<?php
+function selectAll($pdo){
+	$sql = "SELECT * FROM users";
+	foreach($pdo->query($sql) as $row){
+		echo $row['first_name'].$row['last_name'].'<br />';
+		echo $row['email'];
+		echo $row['password'];
+	}
+}	
+selectAll($pdo);
+?>
 
 
 </body>
