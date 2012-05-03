@@ -1,0 +1,12 @@
+body {
+	color: #000;
+}
+form {
+	width: 210px;
+	background: #ccc;
+	padding: 10px;
+	border: 1px solid #999;
+}
+p {
+	text-align: right;
+}
