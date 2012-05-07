@@ -1,6 +1,10 @@
 body {
 	color: #000;
 }
+#wrapper {
+	width: 233px;
+	margin: 0 auto;
+}
 form {
 	width: 210px;
 	background: #ccc;
@@ -9,4 +13,56 @@ form {
 }
 p {
 	text-align: right;
+}
+
+.select input {
+	display: block;
+	width: 95%;
+	padding: 15px 0;
+	border: 1px solid #27688e;
+	background: #409ed6;
+	color: #fff;
+	font-size: 11pt;
+	font-family: Veranda, arial, sans-serif;
+	text-shadow: 1px 1px 1px #555;
+}
+.select input:hover {
+	cursor: pointer;
+	background: #3980ac;
+}
+#select p, #results p {
+	text-align: left;
+}
+#results {
+	display: none;
+	margin-top: 10px;
+	background: #61a6d1;
+	border: 1px solid #0f6ca6;
+	padding: 10px;
+}
+#results p {
+	background: #c3e2d1;
+	border: 1px solid #47b77f;
+	padding: 7px 4px;
+}
+#results .clicked{
+	display: block;
+	background: #ff6e70;
+	border: 1px solid #e02c2f;
+}
+#delete {
+	background: transparent;
+	border: none;
+	padding: 0;
+}
+#results .delete {
+	padding: 12px;
+	width: 100%;
+	margin: 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+#results .delete:hover {
+	cursor: pointer;
+	background: #ffa2a4;
 }
