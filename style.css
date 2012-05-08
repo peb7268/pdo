@@ -11,10 +11,15 @@ form {
 	padding: 10px;
 	border: 1px solid #999;
 }
-p {
+#insert p:last-of-type {
 	text-align: right;
 }
-
+#insert input[type="text"], #insert input[type="email"], #insert input[type="password"]{
+	border: none;
+	padding: 7px;
+	width: 92%;
+	text-align: left;
+}
 .select input {
 	display: block;
 	width: 95%;
@@ -65,4 +70,14 @@ p {
 #results .delete:hover {
 	cursor: pointer;
 	background: #ffa2a4;
+}
+#errors {
+	background: #FF6E70;
+	border: 1px solid #E02C2F;
+	margin-top: 10px;
+}
+#errors .error {
+	width: 90%;
+	text-align: center;
+	color: #5e0002;
 }
