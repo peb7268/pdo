@@ -72,6 +72,7 @@ form {
 	background: #ffa2a4;
 }
 #errors {
+	display: none;
 	background: #FF6E70;
 	border: 1px solid #E02C2F;
 	margin-top: 10px;

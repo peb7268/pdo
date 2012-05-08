@@ -110,7 +110,9 @@
 	if(isset($_POST['submit'])){
 		$error_array = array();
 		$error_messages = array(
-			'first_name'=>'<p class="error">Please enter your first name.</p>'
+			'first_name'=>'<p class="error">Please enter your first name.</p>',
+			'last_name'=>'<p class="error">Please enter your last name.</p>',
+			'email'=>'<p class="error">Please enter your email address.</p>'
 		);
 			
 		$first_name = $_POST['first_name'];
@@ -118,17 +120,24 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		
+		//Required Fields
+		$required = array('first_name', 'last_name', 'email');
 		$data = array('', $first_name, $last_name, $email, $password); 
 		
 		//If basic validation passes then
-		$stmnt = $pdo-> prepare("INSERT INTO users (id, first_name, last_name, email, password) values (?, ?, ?, ?, ?)");
-		$stmnt->setFetchMode(PDO::FETCH_ASSOC);
-		$stmnt->execute($data);
-
-		if(!$first_name){
-		  array_push($error_array, 'first_name');
+		foreach($required as $input){
+			if($_POST[$input] == ''){
+				array_push($error_array, $input);
+			}
 		}
 		
+		if(empty($error_array)){
+			echo '$error_array is empty';
+			print_r($error_array);
+			$stmnt = $pdo-> prepare("INSERT INTO users (id, first_name, last_name, email, password) values (?, ?, ?, ?, ?)");
+			$stmnt->setFetchMode(PDO::FETCH_ASSOC);
+			$stmnt->execute($data);
+		}
 	}
 ?>
 
@@ -153,9 +162,9 @@
 
 <div id="wrapper">
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="insert">
-		<p><input type="text" name="first_name" placeholder="First Name"></p>
-		<p><input type="text" name="last_name" placeholder="Last Name"></p>
-		<p><input type="email" required="required" name="email" placeholder="Email"></p>
+		<p><input type="text" name="first_name" value="<?php echo $_POST['first_name'] ?>" placeholder="First Name"></p>
+		<p><input type="text" name="last_name" value="<?php echo $_POST['last_name'] ?>" placeholder="Last Name"></p>
+		<p><input type="email" required="required" name="email" value="<?php echo $_POST['email'] ?>" placeholder="Email"></p>
 		<p><input type="password" name="password" placeholder="Password"></p>
 	
 		<p><input type="submit" name="submit" value="Continue &rarr;"></p>

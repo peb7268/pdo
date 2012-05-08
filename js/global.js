@@ -1,8 +1,15 @@
 $(document).ready(function($){
 	var reulsts = $('#results');
 		results = $(results);
+	var	errors = $('#errors');
+		errors = $(errors);
+		
+		
 	if(results.find('p').length > 0){
 		results.fadeIn();
+	}
+	if(errors.find('p').length > 0){
+		errors.fadeIn();
 	}
 	
 	var obj = { 
