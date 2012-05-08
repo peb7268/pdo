@@ -192,6 +192,9 @@
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="delete">
 			<input type="submit" class="clicked delete" name="delete" value="delete">
 		</form>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="update">
+			<input type="submit" class="update" name="update" value="update">
+		</form>
 	</div><!-- #results -->
 	<div id="errors">
 		<?php

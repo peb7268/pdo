@@ -25,6 +25,7 @@ $(document).ready(function($){
 			//Store the clicked ID's
 			obj.id_array.push(id.selector);
 	});
+	//Delete Ajax Call
 	$('#results form .delete').on('click', function(event){
 		event.preventDefault();
 		//var obj;
@@ -51,6 +52,22 @@ $(document).ready(function($){
 					});
 				}
 				
+		});
+	});
+	
+	//Update Ajax Call
+	$('#results form .update').on('click', function(event){
+		event.preventDefault();
+		var form_data = {
+			first_name: $('#insert input[name="first_name"]').val(),
+			last_name: $('#insert input[name="last_name"]').val(),
+			email: $('#insert input[name="email"]').val(),
+			password: $('#insert input[name="password"]').val()
+		};
+		//var form_data = JSON.stringify(form);
+		
+		$.post('./update.php', {data: form_data }, function(returned_id){
+			console.log(returned_id);
 		});
 	});
 });

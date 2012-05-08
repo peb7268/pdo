@@ -40,6 +40,7 @@ form {
 }
 #results {
 	display: none;
+	overflow: hidden;
 	margin-top: 10px;
 	background: #61a6d1;
 	border: 1px solid #0f6ca6;
@@ -55,21 +56,34 @@ form {
 	background: #ff6e70;
 	border: 1px solid #e02c2f;
 }
-#delete {
+#delete, #update {
 	background: transparent;
 	border: none;
 	padding: 0;
 }
-#results .delete {
+#results .delete, #results #update input{
 	padding: 12px;
-	width: 100%;
+	width: 48%;
 	margin: 0;
 	text-transform: uppercase;
 	text-align: center;
+	margin-right: 10px;
+	float: left;
 }
 #results .delete:hover {
 	cursor: pointer;
 	background: #ffa2a4;
+}
+#results #update input {
+	margin-right: 0;
+}
+#results #update input:hover {
+	cursor: pointer;
+	background: #ffdf9d;
+}
+#update input {
+	background: #ffcd67;
+	border: 1px solid #e79b00;
 }
 #errors {
 	display: none;
