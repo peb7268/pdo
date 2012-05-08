@@ -18,9 +18,9 @@
 	function selectAll($pdo){
 		$sql = "SELECT * FROM users";
 		foreach($pdo->query($sql) as $row){
-			echo $row['first_name'].' '.$row['last_name'].'<br />';
+			echo '<p id="'.$row['id'].'">'.$row['first_name'].' '.$row['last_name'].'<br />';
 			echo $row['email'].'<br />';
-			echo $row['password'].'<br />';
+			echo $row['password'].'</p>';
 		}
 	}
 	function debugSql($keys, $placeholders){
